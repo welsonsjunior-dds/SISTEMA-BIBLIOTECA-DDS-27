@@ -8,6 +8,16 @@ USE db_biblioteca;
 
 -- CRIAR AS TABELAS
 
+-- CRIAR TABELA USUÁRIOS
+CREATE TABLE tb_usuarios(
+	id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45) NOT NULL,
+    email VARCHAR(45),
+    senha VARCHAR(15),
+    perfil VARCHAR(10)
+);
+
+
 -- TABELA LEITOR
 CREATE TABLE tb_leitores(
 	id_leitor INT PRIMARY KEY AUTO_INCREMENT,
@@ -70,7 +80,7 @@ VALUES
     
     
 -- EXCLUIR TABELAS
-DROP TABLE tb_usuarios;
+-- DROP TABLE tb_usuarios;
 
 -- BUSCAR INFORMAÇÕES
 SELECT * FROM tb_leitores;
@@ -85,12 +95,8 @@ JOIN
 ON 
 	emp.leitor = le.id_leitor -- iguala o campo pelo nome das colunas
 JOIN
-	tb_livro AS li
+	tb_livros AS li
 ON
 	emp.livro = li.id_livro; -- aqui também
 
-
-
-    
-    
 

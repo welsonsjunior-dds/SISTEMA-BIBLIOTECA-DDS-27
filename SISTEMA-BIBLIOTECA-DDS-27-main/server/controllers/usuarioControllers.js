@@ -13,9 +13,24 @@ module.exports = {
     },
     // CRUD
     // CREATE
-    criar: (req, res) =>{
-        usuarioModels.criarUsuario()
-        res.send("CRIE UM USUÁRIO")
+    criar: async (req, res) =>{
+        try{
+            // COLETA AS INFORMAÇÕES DO BODY DA REQUISIÇÃO
+            const { nome, email, senha, perfil} = req.body
+
+            // PASSA AS INFORMAÇÕES PRO MODEL 
+            await usuarioModels.criarUsuario( nome, email, senha, perfil)
+
+            // REDIRECIONA A PAGINA DE LISTAR DE USUÁRIO
+            res.redirect("/usuarios")
+        }   
+        catch(erro){
+            // MOSTRA O ERRO NO TERMINAL
+            console.log(erro);
+            //  RENDERIZA A PÁGINA DE ERRO, MOSTRANDO PRO USUÁRIO UMA MENSAGEM
+            res.render('erro', {erro, mensagem: "Erro ao criar o usuário"})
+            
+        }
     },
     // READ
     listar: (req,res) => {

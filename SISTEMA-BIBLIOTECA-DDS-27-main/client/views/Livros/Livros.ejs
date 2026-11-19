@@ -1,0 +1,55 @@
+<!-- IMPORTAÇÃO DO HEADER -->
+<%- include('partials/header') %>
+
+    <main class="container my-2 flex-grow-1">
+        <h1 class="text-center"> 
+           CRAIR NOVO LIVRO 
+        </h1>
+
+        <div class="d-flex flex-column">
+            <form action="/usuarios/livros" method="post">
+                <!-- CAIXINHA DE TITULO -->
+                <div class="form-group">
+                    <label for="titulo"> Titulo: </label>
+                    <input type="titulo" name="titulo" id="titulo" required>
+                </div>
+
+                <!-- CAIXINHA DE AUTOR -->
+                 <div class="form-group">
+                    <label for="autor"> AUTOR: </label>
+                    <input type="autor" name="autor" id="autor" required>
+                 </div>    
+                 
+                 <div class="form-group">
+                    <label for="ano_lancamento"> Ano de Lançamento: </label>
+                    <input type="date">
+                </div>
+
+                 <!-- CAIXINHA DE VISIBILIDADE -->
+                <div class="form-group">
+                    <label for="visibilidade"> Visibilidade no sistema: </label>
+                    <select name="visibilidade" id="visibilidade" class="form-control">
+                        <option value="ativo"> Ativo</option>
+                        <option value="desativado"> Desativado</option>
+                    </select>
+                </div>
+
+                <!-- CAIXINHA DE GENERO -->
+                <div class="form-group">
+                    <label for="genero"> Gênero: </label>
+                    <select name="genero" id="genero" class="form-control">
+                        <option value="aventura"> Ficção</option>
+                        <option value="ficcao"> Ficção</option>
+                        <option value="drama"> Drama</option>
+                    </select>
+                </div>
+                <!-- BOTÃO DE ENVIO -->
+                <button type="submit" class="btn-subtle theme-accent mt-3"> 
+                    POSTAR LIVRO 
+                </button>
+            </form>
+        </div>
+    </main>
+
+<!-- IMPORTAÇÃO DO FOOTER -->
+<%- include('partials/footer') %>
